@@ -1,0 +1,50 @@
+.app {
+    line-height: 24px;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .header {
+        border: 1px solid gray;
+        padding: 10px;
+    }
+
+    .column-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .column {
+            padding: 32px;
+            flex-basis: 100%;
+
+            &.left-column {
+                border: 1px solid gray;
+            }
+
+            &.right-column {
+                border: 1px solid gray;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .app {
+        .header {
+            padding: 50px;
+        }
+
+        .column-container {
+            flex-wrap: nowrap;
+
+            .column {
+                &.left-column {
+                    flex-basis: 30%;
+                }
+
+                &.right-column {
+                    flex-basis: 70%;
+                }
+            }
+        }
+    }
+}
