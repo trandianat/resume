@@ -1,4 +1,4 @@
-const experiences = [
+export const latestExperiences = [
     {
         title: 'Senior Software Engineer',
         company: 'Liberty Mutual',
@@ -39,6 +39,9 @@ const experiences = [
             'Contribute to architecture, design, security, and testing of the three applications'
         ]
     },
+];
+
+export const oldExperiences = [
     {
         title: 'IT Analyst II',
         company: 'Liberty Mutual',
@@ -96,5 +99,3 @@ const experiences = [
         ]
     }
 ];
-
-export default experiences;

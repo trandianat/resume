@@ -1,19 +1,28 @@
+html {
+    background-color: #F5F5F5;
+}
+
 .app {
+    font-family: Helvetica Neue, Arial, sans-serif;
     line-height: 24px;
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0;
 
     .header {
+        background-color: white;
         border: 1px solid gray;
-        padding: 10px;
+        color: #DE264C;
+        padding: 24px 32px;
     }
 
     .column-container {
+        background-color: white;
         display: flex;
         flex-wrap: wrap;
 
         .column {
-            padding: 32px;
+            padding: 0 32px 32px;
             flex-basis: 100%;
 
             &.left-column {
@@ -22,6 +31,23 @@
 
             &.right-column {
                 border: 1px solid gray;
+
+                #old-experience {
+                    display: none;
+                }
+
+                .experience-toggle {
+                    border: 1px solid #DE264C;
+                    border-radius: 3px;
+                    background-color: transparent;
+                    color: #DE264C;
+                    padding: 5px 10px;
+
+                    &:hover {
+                        background-color: #DE264C;
+                        color: white;
+                    }
+                }
             }
         }
     }
@@ -29,8 +55,10 @@
 
 @media screen and (min-width: 768px) {
     .app {
+        padding: 12px 0;
+
         .header {
-            padding: 50px;
+            padding: 24px 32px;
         }
 
         .column-container {
@@ -46,5 +74,11 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .app {
+        padding: 0;
     }
 }

@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from '../Title/Title';
-import experiences from '../experiences';
+import { latestExperiences, oldExperiences } from '../experiences';
 import './App.scss';
 
 const App = () => {
+  const [isOldExperienceOpen, setIsOldExperienceOpen] = useState(false);
+
+  const toggleOldExperience = () => {
+    const oldExperience = document.getElementById('old-experience');
+    if (oldExperience.style.display === 'none') {
+      oldExperience.style.display = 'block';
+      setIsOldExperienceOpen(true);
+    } else {
+      oldExperience.style.display = 'none';
+      setIsOldExperienceOpen(false);
+    }
+  };
+
   return (
     <div className="app">
       <div className="header">
@@ -22,6 +35,7 @@ const App = () => {
             <Title title="Skills" />
             <ul>
               <li>MERN</li>
+              <li>CI/CD</li>
               <li>AWS architecture</li>
               <li>Agile</li>
             </ul>
@@ -33,19 +47,29 @@ const App = () => {
           </div>
         </div>
         <div className="column right-column">
-          <div className="experience">
+          <div id="latest-experience">
             <Title title="Experience" />
-            {experiences.map((experience, eIndex) => {
-              return (<><p>{experience.title}, {experience.department ? `${experience.department}, ` : null}{experience.company}, {experience.length}</p>
+            {latestExperiences.map((experience, eIndex) => {
+              return (<><p><b>{experience.title}</b>, {experience.department && `${experience.department}, `}{experience.company}, {experience.length}</p>
                 <ul>
                   {experience.responsibilities.map((responsibility, rIndex) => {
-                    const key = `${eIndex + 1}-${rIndex + 1}`;
-                    console.log('key', key);
-                    return (<li key={key}>{responsibility}</li>);
+                    return (<li key={`${eIndex + 1}-${rIndex + 1}`}>{responsibility}</li>);
                   })}
                 </ul>
               </>);
             })}
+            <button className="experience-toggle" onClick={() => toggleOldExperience()} type="button">{isOldExperienceOpen ? 'Hide' : 'Show'} older experience</button>
+            <div id="old-experience">
+              {oldExperiences.map((experience, eIndex) => {
+                return (<><p><b>{experience.title}</b>, {experience.department && `${experience.department}, `}{experience.company}, {experience.length}</p>
+                  <ul>
+                    {experience.responsibilities.map((responsibility, rIndex) => {
+                      return (<li key={`${latestExperiences.length + eIndex + 1}-${rIndex + 1}`}>{responsibility}</li>);
+                    })}
+                  </ul>
+                </>);
+              })}
+            </div>
           </div>
         </div>
       </div>
