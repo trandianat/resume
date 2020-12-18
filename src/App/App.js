@@ -35,6 +35,7 @@ const App = () => {
             <Title title="Skills" />
             <ul>
               <li>MERN</li>
+              <li>GraphQL</li>
               <li>CI/CD</li>
               <li>AWS architecture</li>
               <li>Agile</li>
