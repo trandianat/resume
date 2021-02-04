@@ -46,6 +46,7 @@ const App = () => {
             <p>Boston College</p>
             <p>Computer Science, 2014</p>
           </div>
+          <p className="footnote">Last updated: 2/4/21</p>
         </div>
         <div className="column right-column">
           <div id="latest-experience">

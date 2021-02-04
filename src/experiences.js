@@ -2,7 +2,7 @@ export const latestExperiences = [
     {
         title: 'Senior Software Engineer',
         company: 'Liberty Mutual',
-        department: 'U.S. Consumer Markets, Marketing, Digital & Distribution, Direct Sales',
+        department: 'U.S. Consumer Markets, Distribution Technology, Direct Sales',
         length: 'Oct \'19 - Present',
         responsibilities: [
             'Developed and supported the auto sales applications for Liberty Mutual',
