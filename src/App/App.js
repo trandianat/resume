@@ -46,30 +46,66 @@ const App = () => {
             <p>Boston College</p>
             <p>Computer Science, 2014</p>
           </div>
-          <p className="footnote">Last updated: 2/4/21 5:49pm</p>
+          <p className="footnote">Last updated: 2/4/21 7:21pm</p>
         </div>
         <div className="column right-column">
           <div id="latest-experience">
             <Title title="Experience" />
             {latestExperiences.map((experience, eIndex) => {
-              return (<><p><b>{experience.title}</b>, {experience.department && `${experience.department}, `}{experience.company}, {experience.length}</p>
-                <ul>
-                  {experience.responsibilities.map((responsibility, rIndex) => {
-                    return (<li key={`${eIndex + 1}-${rIndex + 1}`}>{responsibility}</li>);
-                  })}
-                </ul>
-              </>);
+              return (
+                <>
+                  <p>
+                    <b>{experience.title}</b>,{' '}
+                    {experience.department && `${experience.department}, `}
+                    {experience.company}, {experience.length}
+                  </p>
+                  <ul>
+                    {experience.responsibilities.map(
+                      (responsibility, rIndex) => {
+                        return (
+                          <li key={`${eIndex + 1}-${rIndex + 1}`}>
+                            {responsibility}
+                          </li>
+                        );
+                      }
+                    )}
+                  </ul>
+                </>
+              );
             })}
-            <button className="experience-toggle" onClick={() => toggleOldExperience()} type="button">{isOldExperienceOpen ? 'Hide' : 'Show'} older experience</button>
+            <button
+              className="experience-toggle"
+              onClick={() => toggleOldExperience()}
+              type="button"
+            >
+              {isOldExperienceOpen ? 'Hide' : 'Show'} older experience
+            </button>
             <div id="old-experience">
               {oldExperiences.map((experience, eIndex) => {
-                return (<><p><b>{experience.title}</b>, {experience.department && `${experience.department}, `}{experience.company}, {experience.length}</p>
-                  <ul>
-                    {experience.responsibilities.map((responsibility, rIndex) => {
-                      return (<li key={`${latestExperiences.length + eIndex + 1}-${rIndex + 1}`}>{responsibility}</li>);
-                    })}
-                  </ul>
-                </>);
+                return (
+                  <>
+                    <p>
+                      <b>{experience.title}</b>,{' '}
+                      {experience.department && `${experience.department}, `}
+                      {experience.company}, {experience.length}
+                    </p>
+                    <ul>
+                      {experience.responsibilities.map(
+                        (responsibility, rIndex) => {
+                          return (
+                            <li
+                              key={`${latestExperiences.length + eIndex + 1}-${
+                                rIndex + 1
+                              }`}
+                            >
+                              {responsibility}
+                            </li>
+                          );
+                        }
+                      )}
+                    </ul>
+                  </>
+                );
               })}
             </div>
           </div>

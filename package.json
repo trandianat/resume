@@ -6,7 +6,9 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "node-sass": "^4.13.1",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "^4.0.1"
@@ -20,7 +22,11 @@
     "serve": "react-scripts build && aws s3 sync build/ s3://trandianat"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": ["error", { "arrowParens": "avoid", "singleQuote": true, "tabWidth": 2, "trailingComma": "es5" }]
+    }
   },
   "browserslist": {
     "production": [
