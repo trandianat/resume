@@ -1,12 +1,12 @@
-export const latestExperiences = [
+const latestExperiences = [
   {
     title: 'Senior Software Engineer',
     company: 'Liberty Mutual',
     department: 'U.S. Consumer Markets, Distribution Technology, Direct Sales',
     length: "Oct '19 - Present",
     responsibilities: [
-      'Developed and supported the auto sales applications for Liberty Mutual',
-      'Created an API via AWS CDK to support state-specific requirements',
+      'Develop and support the auto sales applications for Liberty Mutual',
+      'Implement A/B tests and iterate on post-MVP designs',
     ],
   },
   {
@@ -17,7 +17,7 @@ export const latestExperiences = [
     length: "Oct '17 - Oct '19",
     responsibilities: [
       'Developed and supported the claim filing applications for Liberty Mutual and Safeco',
-      'Expanded the claim filing applications beyond first-party customers',
+      'Expanded the claim filing application users beyond first-party customers',
     ],
   },
   {
@@ -26,8 +26,8 @@ export const latestExperiences = [
     department: 'U.S. Consumer Markets, Financial Services, Sales Compensation',
     length: "Aug '16 - Sep '17",
     responsibilities: [
-      'Pioneered initiative within business unit to migrate legacy systems to a cloud native architecture',
-      'Documented requirements and implement application functionality accordingly',
+      'Pioneered initiative within business unit to migrate legacy systems to a cloud-native architecture',
+      'Documented requirements and implemented application functionality accordingly',
     ],
   },
   {
@@ -37,12 +37,12 @@ export const latestExperiences = [
     length: "Feb '16 - Jul '16",
     responsibilities: [
       'Supported development of claims, underwriting, and contact management applications',
-      'Contribute to architecture, design, security, and testing of the three applications',
+      'Contributed to architecture, design, security, and testing of the three applications',
     ],
   },
 ];
 
-export const oldExperiences = [
+const oldExperiences = [
   {
     title: 'IT Analyst II',
     company: 'Liberty Mutual',
@@ -100,3 +100,7 @@ export const oldExperiences = [
     ],
   },
 ];
+
+const skills = ['MERN', 'GraphQL', 'CI/CD', 'AWS architecture', 'Agile'];
+
+export { latestExperiences, oldExperiences, skills };

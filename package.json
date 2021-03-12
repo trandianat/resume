@@ -30,6 +30,7 @@
       "prettier/prettier": [
         "error",
         {
+          "arrowBodyStyle": "as-needed",
           "arrowParens": "avoid",
           "singleQuote": true,
           "tabWidth": 2,
