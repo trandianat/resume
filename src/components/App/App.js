@@ -8,7 +8,10 @@ const App = () => {
 
   const toggleOldExperience = () => {
     const oldExperience = document.getElementById('old-experience');
-    if (oldExperience.style.display === 'none') {
+    if (
+      !oldExperience.style.display ||
+      oldExperience.style.display === 'none'
+    ) {
       oldExperience.style.display = 'block';
       setIsOldExperienceOpen(true);
     } else {
@@ -28,7 +31,7 @@ const App = () => {
           <div className="contact">
             <Title title="Contact" />
             <p>trandianat@gmail.com</p>
-            <p>Boston, MA</p>
+            <p>Newton, MA</p>
           </div>
           <div className="skills">
             <Title title="Skills" />
@@ -43,7 +46,7 @@ const App = () => {
             <p>Boston College</p>
             <p>Computer Science, 2014</p>
           </div>
-          <p className="footnote">Last updated: 3/12/21 2:42pm</p>
+          <p className="footnote">Last updated: 3/15/21 10:16pm</p>
         </div>
         <div className="column right-column">
           <div id="latest-experience">
