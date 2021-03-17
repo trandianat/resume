@@ -28,25 +28,19 @@ const App = () => {
       </div>
       <div className="column-container">
         <div className="column left-column">
-          <div className="contact">
-            <Title title="Contact" />
-            <p>trandianat@gmail.com</p>
-            <p>Newton, MA</p>
-          </div>
-          <div className="skills">
-            <Title title="Skills" />
-            <ul>
-              {skills.map((skill, sIndex) => (
-                <li key={`skill-${sIndex + 1}`}>{skill}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="education">
-            <Title title="Education" />
-            <p>Boston College</p>
-            <p>Computer Science, 2014</p>
-          </div>
-          <p className="footnote">Last updated: 3/15/21 10:16pm</p>
+          <Title title="Contact" />
+          <p>trandianat@gmail.com</p>
+          <p>Newton, MA</p>
+          <Title title="Skills" />
+          <ul>
+            {skills.map((skill, sIndex) => (
+              <li key={`skill-${sIndex + 1}`}>{skill}</li>
+            ))}
+          </ul>
+          <Title title="Education" />
+          <p>Boston College</p>
+          <p>Computer Science, 2014</p>
+          <p className="footnote">Last updated: 3/16/21 9:16pm</p>
         </div>
         <div className="column right-column">
           <div id="latest-experience">

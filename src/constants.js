@@ -17,7 +17,7 @@ const latestExperiences = [
     length: "Oct '17 - Oct '19",
     responsibilities: [
       'Developed and supported the claim filing applications for Liberty Mutual and Safeco',
-      'Expanded the claim filing application users beyond first-party customers',
+      'Expanded the claim filing application user base beyond first-party customers',
     ],
   },
   {

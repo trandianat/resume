@@ -27,6 +27,10 @@ html {
 
             &.left-column {
                 border: 1px solid gray;
+
+                p {
+                    margin: 0;
+                }
             }
 
             &.right-column {
