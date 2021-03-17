@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import Title from '../Title';
-import { latestExperiences, oldExperiences, skills } from '../../constants';
+import {
+  latestExperiences,
+  oldExperiences,
+  primarySkills,
+  familiarSkills,
+} from '../../constants';
 import './App.scss';
 
 const App = () => {
@@ -20,6 +25,21 @@ const App = () => {
     }
   };
 
+  const formatExperienceDetails = experience => (
+    <>
+      <p className="experience-title">
+        <b>{experience.title}</b>
+      </p>
+      <p>
+        {experience.company}
+        {experience.department && `, ${experience.department}`}
+      </p>
+      <p>
+        <i>{experience.length}</i>
+      </p>
+    </>
+  );
+
   return (
     <div className="app">
       <div className="header">
@@ -32,66 +52,66 @@ const App = () => {
           <p>trandianat@gmail.com</p>
           <p>Newton, MA</p>
           <Title title="Skills" />
+          <p>
+            <i>Primarily used</i>:
+          </p>
           <ul>
-            {skills.map((skill, sIndex) => (
-              <li key={`skill-${sIndex + 1}`}>{skill}</li>
+            {primarySkills.map((skill, sIndex) => (
+              <li key={`primary-skill-${sIndex + 1}`}>{skill}</li>
+            ))}
+          </ul>
+          <hr />
+          <p>
+            <i>Familiar with</i>:
+          </p>
+          <ul>
+            {familiarSkills.map((skill, sIndex) => (
+              <li key={`familiar-skill-${sIndex + 1}`}>{skill}</li>
             ))}
           </ul>
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 3/16/21 9:16pm</p>
+          <p className="footnote">Last updated: 3/16/21 10:14pm</p>
         </div>
         <div className="column right-column">
-          <div id="latest-experience">
-            <Title title="Experience" />
-            {latestExperiences.map((experience, eIndex) => (
+          <Title title="Experience" />
+          {latestExperiences.map((experience, eIndex) => (
+            <>
+              {formatExperienceDetails(experience)}
+              <ul>
+                {experience.responsibilities.map((responsibility, rIndex) => (
+                  <li key={`experience-${eIndex + 1}-${rIndex + 1}`}>
+                    {responsibility}
+                  </li>
+                ))}
+              </ul>
+            </>
+          ))}
+          <button
+            className="experience-toggle"
+            onClick={() => toggleOldExperience()}
+            type="button"
+          >
+            {isOldExperienceOpen ? 'Hide' : 'Show'} older experience
+          </button>
+          <div id="old-experience">
+            {oldExperiences.map((experience, eIndex) => (
               <>
-                <p>
-                  <b>{experience.title}</b>,{' '}
-                  {experience.department && `${experience.department}, `}
-                  {experience.company}, {experience.length}
-                </p>
+                {formatExperienceDetails(experience)}
                 <ul>
                   {experience.responsibilities.map((responsibility, rIndex) => (
-                    <li key={`experience-${eIndex + 1}-${rIndex + 1}`}>
+                    <li
+                      key={`experience-${
+                        latestExperiences.length + eIndex + 1
+                      }-${rIndex + 1}`}
+                    >
                       {responsibility}
                     </li>
                   ))}
                 </ul>
               </>
             ))}
-            <button
-              className="experience-toggle"
-              onClick={() => toggleOldExperience()}
-              type="button"
-            >
-              {isOldExperienceOpen ? 'Hide' : 'Show'} older experience
-            </button>
-            <div id="old-experience">
-              {oldExperiences.map((experience, eIndex) => (
-                <>
-                  <p>
-                    <b>{experience.title}</b>,{' '}
-                    {experience.department && `${experience.department}, `}
-                    {experience.company}, {experience.length}
-                  </p>
-                  <ul>
-                    {experience.responsibilities.map(
-                      (responsibility, rIndex) => (
-                        <li
-                          key={`experience-${
-                            latestExperiences.length + eIndex + 1
-                          }-${rIndex + 1}`}
-                        >
-                          {responsibility}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </>
-              ))}
-            </div>
           </div>
         </div>
       </div>
