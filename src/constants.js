@@ -5,8 +5,8 @@ const latestExperiences = [
     department: 'U.S. Consumer Markets, Distribution Technology, Direct Sales',
     length: "October '19 - Present",
     responsibilities: [
-      'Develop and support the auto quote applications for Liberty Mutual',
-      'Implement A/B tests and iterate on post-MVP designs',
+      'Develop and support the sales applications to increase auto online throughput',
+      'Collaborate with business and UX partners to iterate on A/B test designs',
     ],
   },
   {
