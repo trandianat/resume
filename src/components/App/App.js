@@ -72,7 +72,7 @@ const App = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 3/26/21 1:05pm</p>
+          <p className="footnote">Last updated: 4/6/21 4pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
