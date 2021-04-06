@@ -14,60 +14,40 @@ html {
     }
 
     .header {
+        align-items: center;
         background-color: white;
         border: 1px solid gray;
         color: #DE264C;
-        padding: 24px 32px;
-    }
-
-    .column-container {
-        background-color: white;
         display: flex;
         flex-wrap: wrap;
+        padding: 24px 32px;
 
-        .column {
-            padding: 0 32px 32px;
+        .introduction {
             flex-basis: 100%;
+        }
 
-            &.left-column {
-                border: 1px solid gray;
+        .navigation {
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
 
-                ul {
-                    margin: 0;
-                }
-            }
+                li {
+                    display: inline-block;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                    margin-right: 32px;
 
-            &.right-column {
-                border: 1px solid gray;
+                    a {
+                        color: #DE264C;
+                        text-decoration: none;
+                    }
 
-                .experience-title {
-                    font-size: 1.15rem;
-                }
-
-                #old-experience {
-                    display: none;
-                }
-
-                .experience-toggle {
-                    border: 1px solid #DE264C;
-                    border-radius: 3px;
-                    background-color: transparent;
-                    color: #DE264C;
-                    font-size: 1rem;
-                    margin-bottom: 1rem;
-                    padding: 10px 18px;
-
-                    &:hover {
-                        background-color: #DE264C;
-                        color: white;
+                    a:hover {
+                        text-decoration: underline;
                     }
                 }
             }
-        }
-
-        .footnote {
-            font-size: .75rem;
-            padding-top: 1.5rem;
         }
     }
 }
@@ -77,19 +57,18 @@ html {
         padding: 12px 0;
 
         .header {
-            padding: 24px 32px;
-        }
-
-        .column-container {
             flex-wrap: nowrap;
+            padding: 24px 32px;
 
-            .column {
-                &.left-column {
-                    flex-basis: 30%;
-                }
+            .introduction {
+                flex-basis: 30%;
+            }
 
-                &.right-column {
-                    flex-basis: 70%;
+            .navigation {
+                flex-basis: 70%;
+                
+                ul li {
+                    margin: 0 24px;
                 }
             }
         }

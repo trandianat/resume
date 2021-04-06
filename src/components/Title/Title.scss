@@ -1,16 +1,18 @@
 .title {
-  color: #DE264C;
-  font-size: 24px;
-  font-weight: bolder;
-  letter-spacing: 8px;
-  margin: 32px 0 12px;
-  text-transform: uppercase;
-}
+  .role {
+    color: #DE264C;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin: 32px 0 12px;
+    text-transform: uppercase;
+  }
 
-.border {
-  background: #DE264C;
-  border-radius: 5px;
-  height: 5px;
-  margin-bottom: 24px;
-  width: 50px;
+  .border {
+    background: #DE264C;
+    border-radius: 5px;
+    height: 5px;
+    margin-bottom: 24px;
+    width: 50px;
+  }
 }
