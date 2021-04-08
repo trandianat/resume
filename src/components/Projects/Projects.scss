@@ -3,6 +3,16 @@
     border: 1px solid gray;
     padding: 32px;
 
+    input {
+        display: block;
+        padding: 12px;
+        margin: 12px 0;
+    }
+
+    .image-upload {
+        padding: 0;
+    }
+
     img {
         max-height: 100px;
     }

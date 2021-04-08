@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button';
 import Title from '../Title';
 import { latestExperiences, oldExperiences, primarySkills, familiarSkills } from '../../constants';
 import './Resume.scss';
@@ -63,7 +64,7 @@ const Resume = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/7/21 9:24pm</p>
+          <p className="footnote">Last updated: 4/7/21 10:04pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
@@ -79,9 +80,7 @@ const Resume = () => {
               </ul>
             </>
           ))}
-          <button className="experience-toggle" onClick={() => toggleOldExperience()} type="button">
-            {isOldExperienceOpen ? 'Hide' : 'Show'} older experience
-          </button>
+          <Button label={`${isOldExperienceOpen ? 'Hide' : 'Show'} older experience`} onClick={() => toggleOldExperience()} />
           <div id="old-experience">
             {oldExperiences.map((experience, eIndex) => (
               <>

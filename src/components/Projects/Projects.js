@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { API, Storage } from 'aws-amplify';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import Button from '../Button';
+import Title from '../Title';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from '../../graphql/mutations';
 import { listNotes } from '../../graphql/queries';
 import './Projects.scss';
@@ -15,7 +17,7 @@ const Projects = () => {
         fetchNotes();
     }, []);
 
-    async function fetchNotes() {
+    const fetchNotes = async () => {
         const apiData = await API.graphql({ query: listNotes });
         const notesFromAPI = apiData.data.listNotes.items;
         await Promise.all(notesFromAPI.map(async note => {
@@ -28,7 +30,7 @@ const Projects = () => {
         setNotes(apiData.data.listNotes.items);
     }
 
-    async function createNote() {
+    const createNote = async () => {
         if (!formData.name || !formData.description) return;
         await API.graphql({ query: createNoteMutation, variables: { input: formData } });
         if (formData.image) {
@@ -39,13 +41,13 @@ const Projects = () => {
         setFormData(initialFormState);
     }
 
-    async function deleteNote({ id }) {
+    const deleteNote = async ({ id }) => {
         const newNotesArray = notes.filter(note => note.id !== id);
         setNotes(newNotesArray);
         await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
     }
 
-    async function onChange(e) {
+    const onChange = async (e) => {
         if (!e.target.files[0]) return
         const file = e.target.files[0];
         setFormData({ ...formData, image: file.name });
@@ -55,7 +57,8 @@ const Projects = () => {
 
     return (
         <div className="projects">
-            <h1>Notes</h1>
+            <AmplifySignOut />
+            <Title title="Notes" />
             <input
                 onChange={e => setFormData({ ...formData, 'name': e.target.value})}
                 placeholder="Note name"
@@ -66,19 +69,18 @@ const Projects = () => {
                 placeholder="Note description"
                 value={formData.description}
             />
-            <input type="file" onChange={onChange} />
-            <button onClick={createNote}>Create Note</button>
+            <input className="image-upload" type="file" onChange={onChange} />
+            <Button label="Submit note" onClick={createNote} variant="primary" />
             {
             notes.map(note => (
                 <div key={note.id || note.name}>
                     { note.image && <img alt="note" src={note.image} /> }
                     <h2>{note.name}</h2>
                     <p>{note.description}</p>
-                    <button onClick={() => deleteNote(note)}>Delete note</button>
+                    <Button label="Delete note" onClick={() => deleteNote(note)} />
                 </div>
             ))
             }
-            <AmplifySignOut />
         </div>
     );
 };
