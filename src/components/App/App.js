@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-import Resume from '../Resume';
-import Projects from '../Projects';
+import Resume from 'components/Resume';
+import Projects from 'components/Projects';
 import './App.scss';
 
 const App = () => (

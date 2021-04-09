@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { API, Storage } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import Button from '../Button';
-import Title from '../Title';
-import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from '../../graphql/mutations';
-import { listNotes } from '../../graphql/queries';
+import Button from 'components/Button';
+import Title from 'components/Title';
+import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from 'graphql/mutations';
+import { listNotes } from 'graphql/queries';
 import './Projects.scss';
 
 const initialFormState = { name: '', description: '' };
@@ -48,7 +48,7 @@ const Projects = () => {
     }
 
     const onChange = async (e) => {
-        if (!e.target.files[0]) return
+        if (!e.target.files[0]) return;
         const file = e.target.files[0];
         setFormData({ ...formData, image: file.name });
         await Storage.put(file.name, file);
@@ -80,20 +80,24 @@ const Projects = () => {
                     <div className="note-all">
                         <Title title="All notes" />
                         <table>
-                            <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Delete</th>
-                            </tr>
-                            {notes.map((note, index) => (
+                            <thead>
                                 <tr>
-                                    <td className="note-cell">{ note.image && <img alt="note" src={note.image} /> }</td>
-                                    <td>{note.name}</td>
-                                    <td>{note.description}</td>
-                                    <td className="note-cell"><Button label="X" onClick={() => deleteNote(note)} /></td>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Delete</th>
                                 </tr>
-                            ))}
+                            </thead>
+                            <tbody>
+                                {notes.map((note, index) => (
+                                    <tr>
+                                        <td className="note-cell">{ note.image && <img alt="note" src={note.image} /> }</td>
+                                        <td>{note.name}</td>
+                                        <td>{note.description}</td>
+                                        <td className="note-cell"><Button label="X" onClick={() => deleteNote(note)} /></td>
+                                    </tr>
+                                ))}
+                            </tbody>
                         </table>
                     </div>
                 )}

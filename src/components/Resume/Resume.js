@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from '../Button';
-import Title from '../Title';
-import { latestExperiences, oldExperiences, primarySkills, familiarSkills } from '../../constants';
+import Button from 'components/Button';
+import Title from 'components/Title';
+import { latestExperiences, oldExperiences, primarySkills, familiarSkills } from './ResumeContent';
 import './Resume.scss';
 
 const Resume = () => {
