@@ -58,29 +58,46 @@ const Projects = () => {
     return (
         <div className="projects">
             <AmplifySignOut />
-            <Title title="Notes" />
-            <input
-                onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-                placeholder="Note name"
-                value={formData.name}
-            />
-            <input
-                onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-                placeholder="Note description"
-                value={formData.description}
-            />
-            <input className="image-upload" type="file" onChange={onChange} />
-            <Button label="Submit note" onClick={createNote} variant="primary" />
-            {
-            notes.map(note => (
-                <div key={note.id || note.name}>
-                    { note.image && <img alt="note" src={note.image} /> }
-                    <h2>{note.name}</h2>
-                    <p>{note.description}</p>
-                    <Button label="Delete note" onClick={() => deleteNote(note)} />
+            <div className="note-container">
+                <div className="note-add">
+                    <Title title="Add notes" />
+                    <input
+                        className="note-name"
+                        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
+                        placeholder="Note name"
+                        value={formData.name}
+                    />
+                    <textarea
+                        maxLength={100}
+                        onChange={e => setFormData({ ...formData, 'description': e.target.value})}
+                        placeholder="Note description"
+                        value={formData.description}
+                    />
+                    <input className="note-image-upload" type="file" onChange={onChange} />
+                    <Button label="Submit note" onClick={createNote} variant="primary" />
                 </div>
-            ))
-            }
+                {notes.length > 0 && (
+                    <div className="note-all">
+                        <Title title="All notes" />
+                        <table>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Delete</th>
+                            </tr>
+                            {notes.map((note, index) => (
+                                <tr>
+                                    <td className="note-cell">{ note.image && <img alt="note" src={note.image} /> }</td>
+                                    <td>{note.name}</td>
+                                    <td>{note.description}</td>
+                                    <td className="note-cell"><Button label="X" onClick={() => deleteNote(note)} /></td>
+                                </tr>
+                            ))}
+                        </table>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
