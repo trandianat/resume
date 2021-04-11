@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.6",
+    "@babel/runtime": "^7.13.10",
     "@tensorflow-models/coco-ssd": "2.2.0",
     "@tensorflow/tfjs": "^3.3.0",
     "@tensorflow/tfjs-backend-cpu": "2.0.1",
