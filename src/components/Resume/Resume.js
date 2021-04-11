@@ -64,7 +64,7 @@ const Resume = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/7/21 10:04pm</p>
+          <p className="footnote">Last updated: 4/11/21 3:47pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
@@ -80,7 +80,10 @@ const Resume = () => {
               </ul>
             </>
           ))}
-          <Button label={`${isOldExperienceOpen ? 'Hide' : 'Show'} older experience`} onClick={() => toggleOldExperience()} />
+          <Button
+            label={`${isOldExperienceOpen ? 'Hide' : 'Show'} older experience`}
+            onClick={() => toggleOldExperience()}
+          />
           <div id="old-experience">
             {oldExperiences.map((experience, eIndex) => (
               <>

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './Button.scss';
 
-const Button = ({ label, variant, ...rest }) => (
-    <button className={`${variant}-button`} {...rest}>
+const Button = ({ className, label, variant, ...rest }) => (
+    <button className={classNames(`${variant}-button`, `${className}`)} {...rest}>
         {label}
     </button>
 );

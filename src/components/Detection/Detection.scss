@@ -1,3 +1,29 @@
 .detection {
-    color: red;
+    .detection-text-select {
+        margin-right: 6px;
+    }
+
+    select {
+        margin-bottom: 12px;
+        padding: 6px 12px;
+    }
+
+    #detection-image {
+        display: block;
+        height: 200px;
+    }
+
+    #canvas {
+        margin-top: 12px;
+    }
+
+    .detection-button {
+        display: block;
+        margin-top: 24px;
+
+        &.loading {
+            background-color: gray;
+            border: 1px solid gray;
+        }
+    }
 }

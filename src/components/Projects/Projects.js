@@ -1,7 +1,7 @@
 import React from 'react';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-import Dogs from 'components/Detection';
+import Detection from 'components/Detection';
 import Notes from 'components/Notes';
 import Title from 'components/Title';
 import './Projects.scss';
@@ -19,7 +19,7 @@ const Projects = () => {
                     <Notes />
                 </Route>
                 <Route path={`${path}/detection`}>
-                    <Dogs />
+                    <Detection />
                 </Route>
             </Switch>
         </div>
