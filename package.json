@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.6",
-    "@babel/runtime": "^7.13.10",
+    "@babel/plugin-transform-classes": "^7.13.0",
     "@tensorflow-models/coco-ssd": "2.2.0",
     "@tensorflow/tfjs": "^3.3.0",
     "@tensorflow/tfjs-backend-cpu": "2.0.1",
@@ -15,7 +15,6 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "aws-amplify": "^3.3.26",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "classnames": "^2.3.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
