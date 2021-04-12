@@ -1,17 +1,18 @@
 {
     "presets": [
         [
-            "@babel/env",
+            "@babel/preset-env",
             {
                 "esmodules": false,
                 "targets": {
                     "browsers": ["> 3%"]
                 }
             }
-        ]
+        ],
+        ["@babel/preset-react"]
     ],
     "plugins": [
         ["@babel/plugin-transform-classes"],
-        ["@babel/plugin-transform-runtime", { "polyfill": false }]
+        ["@babel/plugin-transform-runtime"]
     ]
 }
