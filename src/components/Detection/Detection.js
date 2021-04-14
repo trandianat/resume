@@ -12,7 +12,7 @@ import dog from './images/dog.jpg';
 import './Detection.scss';
 
 const Detection = () => {
-    const [image, setImage] = useState(dog);
+    const [image, setImage] = useState(cars);
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([]);
     const vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -47,8 +47,6 @@ const Detection = () => {
         setResults(predictions);
         setLoading(false);
     };
-
-    console.log('image', image);
     
     return (
         <div className="detection">
@@ -58,10 +56,9 @@ const Detection = () => {
                 setImage(event.target.value);
                 setResults([]);
             }}>
-                <option value={dog}>dog</option>
                 <option value={cars}>cars</option>
+                <option value={dog}>dog</option>
             </select>
-            <img alt="Test" id="detection-image" src={cars} />
             <img alt="Detection test" id="detection-image" src={image} />
             <canvas height={document.getElementById('detection-image')?.offsetHeight} id="canvas" />
             {results.length > 0 && results.map(result => (
