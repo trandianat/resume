@@ -47,6 +47,8 @@ const Detection = () => {
         setResults(predictions);
         setLoading(false);
     };
+
+    console.log('image', image);
     
     return (
         <div className="detection">
@@ -59,15 +61,12 @@ const Detection = () => {
                 <option value={dog}>dog</option>
                 <option value={cars}>cars</option>
             </select>
+            <img alt="Test" id="detection-image" src={cars} />
             <img alt="Detection test" id="detection-image" src={image} />
             <canvas height={document.getElementById('detection-image')?.offsetHeight} id="canvas" />
-            {results.length > 0 && (
-                <>
-                    {results.map(result => (
-                        <p>{`A${[vowels].includes(result.class.charAt(0)) ? 'n' : ''} ${result.class} with ${Math.round(result.score * 100)}% confidence`}</p>
-                    ))}
-                </>
-            )}
+            {results.length > 0 && results.map(result => (
+                <p>{`A${[vowels].includes(result.class.charAt(0)) ? 'n' : ''} ${result.class} with ${Math.round(result.score * 100)}% confidence`}</p>
+            ))}
             {results.length === 0 && 
                 <Button
                     className={classNames('detection-button', { loading })}
