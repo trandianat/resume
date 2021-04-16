@@ -12,19 +12,29 @@ import wine from './images/wine.jpg';
 import './Detection.scss';
 
 const Detection = () => {
+    const [error, setError] = useState(false);
     const [image, setImage] = useState(dog);
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([]);
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
     const selectedImage = document.getElementById('detection-image');
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
 
     useEffect(() => {
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
         if (results.length > 0) {
+            setError(false);
             const colors = ['red', 'blue', 'green', 'orange', 'purple', 'gray', 'pink', 'brown', 'black', 'yellow'];
-            context.drawImage(selectedImage, 0, 0, selectedImage.offsetWidth, selectedImage.offsetHeight);
+            const result = document.getElementById('result');
+            const canvas = document.createElement('canvas');
+            const width = selectedImage.offsetWidth;
+            const height = selectedImage.offsetHeight;
+            canvas.id = 'canvas';
+            canvas.style.marginTop = '12px';
+            canvas.width = width;
+            canvas.height = height;
+            result.appendChild(canvas);
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(selectedImage, 0, 0, width, height);
             results.forEach((result, index) => {
                 context.beginPath();
                 context.lineWidth = '2';
@@ -33,18 +43,21 @@ const Detection = () => {
                 context.strokeRect(x, y, width, height);
             });
         } else {
-            context.font = '14px Arial';
-            context.textAlign = 'center';
-            context.fillText('Results will be shown here', canvas.width / 2, canvas.height / 2);
+            document.getElementById('canvas')?.remove();
         }
     }, [results, selectedImage]);
 
     const detectImage = async () => {
         setLoading(true);
         const model = await cocoSsd.load();
-        const predictions = await model.detect(selectedImage, 10, .25);
-        setResults(predictions);
-        setLoading(false);
+        try {
+            const predictions = await model.detect(selectedImage, 10, .25);
+            setResults(predictions);
+        } catch {
+            setError(true);
+        } finally {
+            setLoading(false);
+        }
     };
     
     return (
@@ -53,6 +66,7 @@ const Detection = () => {
             <span className="detection-text-select">Select an image:</span>
             <select onChange={event => {
                 setImage(event.target.value);
+                setError(false);
                 setResults([]);
             }}>
                 <option value={dog}>dog</option>
@@ -61,11 +75,12 @@ const Detection = () => {
                 <option value={wine}>wine</option>
             </select>
             <img alt="Detection test" id="detection-image" src={image} />
-            <canvas height={selectedImage?.offsetHeight} id="canvas" width={selectedImage?.offsetWidth} />
+            <div id="result" />
+            {error && <p className="error"><b>Error in object detection. Please try again.</b></p>}
             {results.length > 0 && results.map(result => (
                 <p>{`A${[vowels].includes(result.class.charAt(0)) ? 'n' : ''} ${result.class} with ${Math.round(result.score * 100)}% confidence`}</p>
             ))}
-            {results.length === 0 && 
+            {(results.length === 0 || error) && 
                 <Button
                     className={classNames('detection-button', { loading })}
                     label={loading ? 'Loading...' : 'Detect image'}
