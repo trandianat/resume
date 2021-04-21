@@ -5,7 +5,7 @@ import { latestExperiences, oldExperiences, primarySkills, familiarSkills } from
 import './Resume.scss';
 
 const Resume = () => {
-    const [isOldExperienceOpen, setIsOldExperienceOpen] = useState(false);
+  const [isOldExperienceOpen, setIsOldExperienceOpen] = useState(false);
 
   const toggleOldExperience = () => {
     const oldExperience = document.getElementById('old-experience');
@@ -36,6 +36,8 @@ const Resume = () => {
     </>
   );
 
+  console.log('test', process.env.LEX_ACCESS);
+
   return (
     <div className="resume">
       <div className="column-container">
@@ -64,7 +66,7 @@ const Resume = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/11/21 3:47pm</p>
+          <p className="footnote">Last updated: 4/20/21 9:19pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
