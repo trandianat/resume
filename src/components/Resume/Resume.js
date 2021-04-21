@@ -36,7 +36,7 @@ const Resume = () => {
     </>
   );
 
-  console.log('test', process.env.LEX_ACCESS);
+  console.log('test', process.env.REACT_APP_TEST_VAR);
 
   return (
     <div className="resume">
@@ -66,7 +66,7 @@ const Resume = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/20/21 9:19pm</p>
+          <p className="footnote">Last updated: 4/20/21 9:44pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
