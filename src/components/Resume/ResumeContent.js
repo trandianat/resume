@@ -103,6 +103,7 @@ const oldExperiences = [
 
 const primarySkills = [
   'React',
+  'JavaScript',
   'HTML',
   'CSS',
   'GraphQL',

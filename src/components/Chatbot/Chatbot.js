@@ -57,7 +57,7 @@ const Chatbot = () => {
     return (
         <div className="chatbot">
             <p className="chatbot-description">
-                This is an <strong>Amazon Lex</strong> chatbot that schedules appointments. The chatbot uses machine learning to process user input and fulfill three "slots"—appointment type, date, and time—before confirming an appointment. Feel free to chat with it, appointment-related or not, and see how it responds.
+                This is an <strong>Amazon Lex</strong> chatbot that schedules appointments. The chatbot uses <strong>machine learning</strong> to process user input and fulfill three "slots"—appointment type, date, and time—before confirming an appointment. Feel free to chat with it and see how it responds.
             </p>
             <Title title="Chatbot" />
             <div className="chatbot-frame">
