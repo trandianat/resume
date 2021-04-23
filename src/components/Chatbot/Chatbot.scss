@@ -4,8 +4,8 @@
         border-radius: 3px;
         max-width: 401px;
         
-        .chatbot-history {
-            height: 300px;
+        #chatbot-history {
+            height: 250px;
             overflow: auto;
             padding: 12px;
 
@@ -43,15 +43,15 @@
             }
         }
 
-        .chatbot-input {
+        .chatbot-control {
             padding: 12px;
 
-            .chatbot-input-message {
+            #chatbot-control-input {
                 padding: 12px;
                 margin-right: 12px;
             }
 
-            .chatbot-send {
+            #chatbot-control-send {
                 margin-right: 12px;
 
                 &.disabled {

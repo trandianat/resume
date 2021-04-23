@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AWS, { LexRuntime } from 'aws-sdk';
 import classNames from 'classnames';
 import Button from 'components/Button';
@@ -39,11 +39,24 @@ const Chatbot = () => {
         setInput('');
     };
 
+    useEffect(() => {
+        const textInput = document.getElementById('chatbot-control-input');
+        const sendButton = document.getElementById('chatbot-control-send');
+        textInput.addEventListener('keyup', event => {
+            if (event.key === 'Enter') sendButton.click();
+        });
+    }, []);
+
+    useEffect(() => {
+        const chatbotHistory = document.getElementById('chatbot-history');
+        chatbotHistory.scrollTop = chatbotHistory.scrollHeight;
+    }, [messages]);
+
     return (
         <div className="chatbot">
             <Title title="Chatbot" />
             <div className="chatbot-frame">
-                <div className="chatbot-history">
+                <div id="chatbot-history">
                     {messages.length === 0 && 'Try asking for an appointment!'}
                     {messages.length > 0 && messages.map(message => (
                         <div className={classNames('chatbot-history-message-container', {
@@ -59,19 +72,19 @@ const Chatbot = () => {
                         </div>
                     ))}
                 </div>
-                <div className="chatbot-input">
+                <div className="chatbot-control">
                     <input
-                        className="chatbot-input-message"
+                        id="chatbot-control-input"
                         onChange={event => setInput(event.target.value)}
                         placeholder="Type a message..."
                         value={input}
                     />
                     <Button
-                        className={classNames('chatbot-send', { 'disabled': input.length < 1 })}
+                        id="chatbot-control-send"
                         label="Send"
                         onClick={() => processInput()}
                         variant="primary"
-                        {...{ disabled: input.length < 1 }}
+                        {...(input.length < 1 && { className: 'disabled' }, { disabled: input.length < 1 })}
                     />
                     <Button label="Reset" onClick={() => {
                         setInput('');

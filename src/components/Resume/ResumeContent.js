@@ -60,7 +60,7 @@ const oldExperiences = [
     length: "June '14 - February '15",
     responsibilities: [
       'Attended and observed core trainings and milestone events of ongoing lean transformations',
-      'Performed user acceptance testing and produced reports on LMS reporting application',
+      'Performed user acceptance testing and produced reports on lean metrics',
     ],
   },
   {
