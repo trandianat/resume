@@ -73,7 +73,10 @@ const Chatbot = () => {
                         variant="primary"
                         {...{ disabled: input.length < 1 }}
                     />
-                    <Button label="Reset" onClick={() => {}} />
+                    <Button label="Reset" onClick={() => {
+                        setInput('');
+                        setMessages([]);
+                    }} />
                 </div>
             </div>
         </div>
