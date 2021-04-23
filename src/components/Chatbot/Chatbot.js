@@ -8,6 +8,8 @@ import './Chatbot.scss';
 const Chatbot = () => {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+    const noInput = input.length < 1;
+    const allWhitespace = input.length > 0 && !input.trim();
     const {
         REACT_APP_LEX_ACCESS,
         REACT_APP_LEX_ALIAS,
@@ -84,7 +86,7 @@ const Chatbot = () => {
                         label="Send"
                         onClick={() => processInput()}
                         variant="primary"
-                        {...(input.length < 1 && { className: 'disabled' }, { disabled: input.length < 1 })}
+                        {...{...((noInput || allWhitespace) && { className: 'disabled' }), disabled: noInput || allWhitespace }}
                     />
                     <Button label="Reset" onClick={() => {
                         setInput('');
