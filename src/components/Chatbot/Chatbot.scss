@@ -1,4 +1,8 @@
 .chatbot {
+    .chatbot-description {
+        padding-top: 32px;
+    }
+
     .chatbot-frame {
         border: 1px solid gray;
         border-radius: 3px;
@@ -30,12 +34,12 @@
                     padding: 8px 16px;
     
                     &.chatbot-history-message-bot {
-                        background-color: rgb(238, 238, 238);
+                        background-color: #F0F0F0;
                         border: 1px solid lightgray;
                     }
         
                     &.chatbot-history-message-user {
-                        background-color: rgb(151, 151, 151);
+                        background-color: #9c9c9c;
                         border: 1px solid lightgray;
                         color: white;
                     }

@@ -2,7 +2,7 @@ const latestExperiences = [
   {
     title: 'Senior Software Engineer',
     company: 'Liberty Mutual',
-    department: 'U.S. Consumer Markets, Distribution Technology, Direct Sales',
+    department: 'Personal Insurance, Direct Sales',
     length: "October '19 - Present",
     responsibilities: [
       'Innovate on the quoting platform via A/B testing in collaboration with product and UX',
@@ -13,7 +13,7 @@ const latestExperiences = [
     title: 'Senior Software Developer',
     company: 'Liberty Mutual',
     department:
-      'U.S. Consumer Markets, Marketing, Digital & Distribution, Direct Claims',
+      'Personal Insurance, Direct Claims',
     length: "October '17 - October '19",
     responsibilities: [
       'Scaled the claim filing application beyond first-party users, e.g., third-party and carriers',
@@ -23,7 +23,7 @@ const latestExperiences = [
   {
     title: 'Software Developer',
     company: 'Liberty Mutual',
-    department: 'U.S. Consumer Markets, Financial Services, Sales Compensation',
+    department: 'Personal Insurance, Sales Compensation',
     length: "August '16 - September '17",
     responsibilities: [
       'Migrated legacy batch jobs from on-premise to the cloud',
@@ -33,7 +33,7 @@ const latestExperiences = [
   {
     title: 'Software Developer',
     company: 'Liberty Mutual',
-    department: 'Global Specialty, Liberty Specialty Markets, Reinsurance',
+    department: 'Specialty Markets, Reinsurance',
     length: "February '16 - July '16",
     responsibilities: [
       'Developed the claims, underwriting, and contact management applications',
@@ -43,7 +43,7 @@ const latestExperiences = [
   {
     title: 'IT Analyst II',
     company: 'Liberty Mutual',
-    department: 'U.S. Consumer Markets, Publishing & Document Management',
+    department: 'Personal Insurance, Publishing & Document Management',
     length: "February '15 - February '16",
     responsibilities: [
       'Integrated policy form template retrieval into a document repository application',
@@ -56,7 +56,7 @@ const oldExperiences = [
   {
     title: 'IT Analyst',
     company: 'Liberty Mutual',
-    department: 'Commercial Insurance, LMS, Reporting, Planning & Analytics',
+    department: 'Commercial Insurance, Reporting, Planning & Analytics',
     length: "June '14 - February '15",
     responsibilities: [
       'Attended and observed core trainings and milestone events of ongoing lean transformations',

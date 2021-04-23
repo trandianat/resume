@@ -62,6 +62,9 @@ const Detection = () => {
     
     return (
         <div className="detection">
+            <p className="detection-description">
+                This project identifies objects within images via <strong>TensorFlow's COCO-SSD machine learning object detection model</strong>. The model returns a list of predicted objects, their coordinates within the image, and a score of confidence for each object. Results will vary per detection depending on what the model returns.
+            </p>
             <Title title="Detection" />
             <span className="detection-text-select">Select an image:</span>
             <select onChange={event => {

@@ -56,11 +56,14 @@ const Notes = () => {
 
     return (
         <div className="notes">
-            <div className="note-container">
-                <div className="note-add">
+            <p className="notes-description">
+                The notes are stored in <strong>DynamoDB</strong> and are added, removed, and retrieved via <strong>GraphQL</strong>. The optional images are stored in <strong>S3</strong> and authentication provided via <strong>AWS Amplify</strong>, which I wrapped around all of the projects to limit the number of calls made to the services used.
+            </p>
+            <div className="notes-container">
+                <div className="notes-add">
                     <Title title="Add notes" />
                     <input
-                        className="note-name"
+                        className="notes-name"
                         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
                         placeholder="Note name"
                         value={formData.name}
@@ -71,11 +74,11 @@ const Notes = () => {
                         placeholder="Note description"
                         value={formData.description}
                     />
-                    <input className="note-image-upload" type="file" onChange={onChange} />
+                    <input className="notes-image-upload" type="file" onChange={onChange} />
                     <Button label="Submit note" onClick={createNote} variant="primary" />
                 </div>
                 {notes.length > 0 && (
-                    <div className="note-all">
+                    <div className="notes-all">
                         <Title title="All notes" />
                         <table>
                             <thead>
@@ -89,10 +92,10 @@ const Notes = () => {
                             <tbody>
                                 {notes.map((note, index) => (
                                     <tr>
-                                        <td className="note-cell">{ note.image && <img alt="note" src={note.image} /> }</td>
+                                        <td className="notes-cell">{ note.image && <img alt="note" src={note.image} /> }</td>
                                         <td>{note.name}</td>
                                         <td>{note.description}</td>
-                                        <td className="note-cell"><Button label="X" onClick={() => deleteNote(note)} /></td>
+                                        <td className="notes-cell"><Button label="X" onClick={() => deleteNote(note)} /></td>
                                     </tr>
                                 ))}
                             </tbody>
