@@ -64,7 +64,7 @@ const Resume = () => {
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/20/21 9:58pm</p>
+          <p className="footnote">Last updated: 4/23/21 11:20am</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />

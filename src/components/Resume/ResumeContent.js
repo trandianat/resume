@@ -5,8 +5,8 @@ const latestExperiences = [
     department: 'U.S. Consumer Markets, Distribution Technology, Direct Sales',
     length: "October '19 - Present",
     responsibilities: [
-      'Develop and support the sales applications to increase auto online throughput',
-      'Collaborate with business and UX partners to iterate on A/B test designs',
+      'Innovate on the quoting platform via A/B testing in collaboration with product and UX',
+      'Mentor junior software engineers and interns',
     ],
   },
   {
@@ -16,8 +16,8 @@ const latestExperiences = [
       'U.S. Consumer Markets, Marketing, Digital & Distribution, Direct Claims',
     length: "October '17 - October '19",
     responsibilities: [
-      'Developed and supported the claim filing applications for Liberty Mutual and Safeco',
-      'Expanded the claim filing application user base beyond first-party customers',
+      'Scaled the claim filing application beyond first-party users, e.g., third-party and carriers',
+      'Created a website to help different types of claimants decide whether to file a claim',
     ],
   },
   {
@@ -26,8 +26,8 @@ const latestExperiences = [
     department: 'U.S. Consumer Markets, Financial Services, Sales Compensation',
     length: "August '16 - September '17",
     responsibilities: [
-      'Pioneered initiative to migrate legacy systems to a cloud-native architecture',
-      'Documented requirements and implemented application functionality accordingly',
+      'Migrated legacy batch jobs from on-premise to the cloud',
+      'Performed extensive testing to ensure frictionless payments to agents',
     ],
   },
   {
@@ -36,7 +36,7 @@ const latestExperiences = [
     department: 'Global Specialty, Liberty Specialty Markets, Reinsurance',
     length: "February '16 - July '16",
     responsibilities: [
-      'Supported development of claims, underwriting, and contact management applications',
+      'Developed the claims, underwriting, and contact management applications',
       'Contributed to architecture, design, security, and testing of the three applications',
     ],
   },
@@ -46,8 +46,8 @@ const latestExperiences = [
     department: 'U.S. Consumer Markets, Publishing & Document Management',
     length: "February '15 - February '16",
     responsibilities: [
-      'Led decision-making on the architecture and design of a document repository application',
-      'Mentored teammates on technical design, execution, and implementation as Technical Lead',
+      'Integrated policy form template retrieval into a document repository application',
+      'Mentored teammates on technical design and implementation as Technical Lead',
     ],
   },
 ];

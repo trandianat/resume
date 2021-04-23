@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './Button.scss';
 
 const Button = ({ className, label, variant, ...rest }) => (
-    <button className={classNames(`${variant}-button`, `${className}`)} {...rest}>
+    <button className={classNames(`${variant}-button`, { [className]: className })} {...rest}>
         {label}
     </button>
 );

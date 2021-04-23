@@ -1,6 +1,7 @@
 import React from 'react';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import Button from 'components/Button';
 import Chatbot from 'components/Chatbot';
 import Detection from 'components/Detection';
 import Notes from 'components/Notes';
@@ -13,9 +14,15 @@ const Projects = () => {
         <div className="projects">
             <AmplifySignOut />
             <Title title="Projects" />
-            [<Link to={`${url}/notes`}>Notes</Link>]
-            [<Link to={`${url}/detection`}>Detection</Link>]
-            [<Link to={`${url}/chatbot`}>Chatbot</Link>]
+            <Link className="projects-button" to={`${url}/notes`}>
+                <Button label="Notes" />
+            </Link>
+            <Link className="projects-button" to={`${url}/detection`}>
+                <Button label="Detection" />
+            </Link>
+            <Link className="projects-button" to={`${url}/chatbot`}>
+                <Button label="Chatbot" />
+            </Link>
             <Switch>
                 <Route path={`${path}/notes`}>
                     <Notes />
