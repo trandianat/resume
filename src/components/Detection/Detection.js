@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import '@tensorflow/tfjs-backend-cpu';
 import '@tensorflow/tfjs-backend-webgl';
@@ -16,13 +16,13 @@ const Detection = () => {
     const [image, setImage] = useState(dog);
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([]);
-    const selectedImage = document.getElementById('detection-image');
+    const colors = useMemo(() => ['red', 'blue', 'green', 'orange', 'purple', 'gray', 'pink', 'brown', 'black', 'yellow'], []);
     const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const selectedImage = document.getElementById('detection-image');
 
     useEffect(() => {
         if (results.length > 0) {
             setError(false);
-            const colors = ['red', 'blue', 'green', 'orange', 'purple', 'gray', 'pink', 'brown', 'black', 'yellow'];
             const result = document.getElementById('result');
             const canvas = document.createElement('canvas');
             const width = selectedImage.offsetWidth;
@@ -45,7 +45,7 @@ const Detection = () => {
         } else {
             document.getElementById('canvas')?.remove();
         }
-    }, [results, selectedImage]);
+    }, [colors, results, selectedImage]);
 
     const detectImage = async () => {
         setLoading(true);
@@ -80,9 +80,7 @@ const Detection = () => {
             <img alt="Detection test" id="detection-image" src={image} />
             <div id="result" />
             {error && <p className="error"><b>Error in object detection. Please try again.</b></p>}
-            {results.length > 0 && results.map(result => (
-                <p>{`A${[vowels].includes(result.class.charAt(0)) ? 'n' : ''} ${result.class} with ${Math.round(result.score * 100)}% confidence`}</p>
-            ))}
+            {results.length > 0 && results.map((result, index) => (<p>A{[vowels].includes(result.class.charAt(0) ? 'n' : '')} <span style={{ color: colors[index] }}>{result.class}</span> with {Math.round(result.score * 100)}% confidence</p>))}
             {(results.length === 0 || error) && 
                 <Button
                     className={classNames('detection-button', { loading })}

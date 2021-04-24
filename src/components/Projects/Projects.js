@@ -14,15 +14,23 @@ const Projects = () => {
         <div className="projects">
             <AmplifySignOut />
             <Title title="Projects" />
-            <Link className="projects-button" to={`${url}/notes`}>
-                <Button label="Notes" />
-            </Link>
-            <Link className="projects-button" to={`${url}/detection`}>
-                <Button label="Detection" />
-            </Link>
-            <Link className="projects-button" to={`${url}/chatbot`}>
-                <Button label="Chatbot" />
-            </Link>
+            <div className="projects-container">
+                <div className="projects-link">
+                    <Link to={`${url}/notes`}>
+                        <Button className="projects-button" label="Notes" />
+                    </Link>
+                </div>
+                <div className="projects-link">
+                    <Link to={`${url}/detection`}>
+                        <Button className="projects-button" label="Detection" />
+                    </Link>
+                </div>
+                <div className="projects-link">
+                    <Link to={`${url}/chatbot`}>
+                        <Button className="projects-button" label="Chatbot" />
+                    </Link>
+                </div>
+            </div>
             <Switch>
                 <Route path={`${path}/notes`}>
                     <Notes />

@@ -3,7 +3,18 @@
     border: 1px solid gray;
     padding: 32px;
 
-    .projects-button {
-        margin-right: 12px;
+    .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 400px;
+
+        .projects-link {
+            flex-grow: 1;
+            margin: 6px;
+        }
+
+        .projects-button {
+            width: 100%;
+        }
     }
 }
