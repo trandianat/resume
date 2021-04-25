@@ -13,10 +13,8 @@ const App = () => (
           <h2>Software Engineer</h2>
         </div>
         <div className="navigation">
-          <ul>
-            <li><Link to="/">RESUME</Link></li>
-            <li><Link to="/projects">PROJECTS</Link></li>
-          </ul>
+          <Link to="/">Resume</Link>
+          <Link to="/projects">Projects</Link>
         </div>
       </div>
       <Switch>

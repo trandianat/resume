@@ -8,8 +8,24 @@
             padding: 0 32px 32px;
             flex-basis: 100%;
 
+            .resume-email {
+                margin: 12px 0;
+
+                a {
+                    color: #DE264C;
+                }
+            }
+
             &.left-column {
                 border: 1px solid gray;
+
+                .resume-skills-container {
+                    display: flex;
+
+                    .resume-skills {
+                        flex-grow: 1;
+                    }
+                }
 
                 ul {
                     margin: 0;
@@ -28,11 +44,6 @@
                     margin-top: 1rem;
                 }
             }
-        }
-
-        .footnote {
-            font-size: .75rem;
-            padding-top: 1.5rem;
         }
     }
 

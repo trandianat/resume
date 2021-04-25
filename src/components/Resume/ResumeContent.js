@@ -40,6 +40,9 @@ const latestExperiences = [
       'Contributed to architecture, design, security, and testing of the three applications',
     ],
   },
+];
+
+const oldExperiences = [
   {
     title: 'IT Analyst II',
     company: 'Liberty Mutual',
@@ -50,9 +53,6 @@ const latestExperiences = [
       'Mentored teammates on technical design and implementation as Technical Lead',
     ],
   },
-];
-
-const oldExperiences = [
   {
     title: 'IT Analyst',
     company: 'Liberty Mutual',

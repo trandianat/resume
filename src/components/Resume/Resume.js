@@ -40,31 +40,37 @@ const Resume = () => {
     <div className="resume">
       <div className="column-container">
         <div className="column left-column">
-          <Title title="Contact" />
-            <p>trandianat@gmail.com</p>
-            <p>Newton, MA</p>
+          <Title title="Summary" />
+          <p>Detail-oriented software engineer with six years of experience in collaborating with business, technology, and UX partners to develop customer-centric solutions</p>
+          <div className="resume-email">
+            <a href="mailto:trandianat@gmail.com">trandianat@gmail.com</a>
+          </div>
           <Title title="Skills" />
-          <p>
-            <i>Primarily used</i>:
-          </p>
-          <ul>
-            {primarySkills.map((skill, sIndex) => (
-              <li key={`primary-skill-${sIndex + 1}`}>{skill}</li>
-            ))}
-          </ul>
-          <hr />
-          <p>
-            <i>Familiar with</i>:
-          </p>
-          <ul>
-            {familiarSkills.map((skill, sIndex) => (
-              <li key={`familiar-skill-${sIndex + 1}`}>{skill}</li>
-            ))}
-          </ul>
+          <div className="resume-skills-container">
+            <div className="resume-skills">
+              <p>
+                <i>Primarily used</i>:
+              </p>
+              <ul>
+                {primarySkills.map((skill, sIndex) => (
+                  <li key={`primary-skill-${sIndex + 1}`}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="resume-skills">
+              <p>
+                <i>Familiar with</i>:
+              </p>
+              <ul>
+                {familiarSkills.map((skill, sIndex) => (
+                  <li key={`familiar-skill-${sIndex + 1}`}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <Title title="Education" />
           <p>Boston College</p>
           <p>Computer Science, 2014</p>
-          <p className="footnote">Last updated: 4/23/21 3:07pm</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />
