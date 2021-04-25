@@ -42,8 +42,8 @@ const Chatbot = () => {
     };
 
     useEffect(() => {
-        const textInput = document.getElementById('chatbot-control-input');
-        const sendButton = document.getElementById('chatbot-control-send');
+        const textInput = document.getElementById('chatbot-control-message-input');
+        const sendButton = document.getElementById('chatbot-control-send-button');
         textInput.addEventListener('keyup', event => {
             if (event.key === 'Enter') sendButton.click();
         });
@@ -78,23 +78,29 @@ const Chatbot = () => {
                     ))}
                 </div>
                 <div className="chatbot-control">
-                    <input
-                        id="chatbot-control-input"
-                        onChange={event => setInput(event.target.value)}
-                        placeholder="Type a message..."
-                        value={input}
-                    />
-                    <Button
-                        id="chatbot-control-send"
-                        label="Send"
-                        onClick={() => processInput()}
-                        variant="primary"
-                        {...{...((noInput || allWhitespace) && { className: 'disabled' }), disabled: noInput || allWhitespace }}
-                    />
-                    <Button label="Reset" onClick={() => {
-                        setInput('');
-                        setMessages([]);
-                    }} />
+                    <div className="chatbot-control-message">
+                        <input
+                            id="chatbot-control-message-input"
+                            onChange={event => setInput(event.target.value)}
+                            placeholder="Type a message..."
+                            value={input}
+                        />
+                    </div>
+                    <div className="chatbot-control-send">
+                        <Button
+                            id="chatbot-control-send-button"
+                            label="Send"
+                            onClick={() => processInput()}
+                            variant="primary"
+                            {...{...((noInput || allWhitespace) && { className: 'disabled' }), disabled: noInput || allWhitespace }}
+                        />
+                    </div>
+                    <div className="chatbot-control-reset">
+                        <Button className="chatbot-control-reset-button" label="Reset" onClick={() => {
+                            setInput('');
+                            setMessages([]);
+                        }} />
+                    </div>
                 </div>
             </div>
         </div>

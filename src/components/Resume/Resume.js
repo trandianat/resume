@@ -38,7 +38,7 @@ const Resume = () => {
       <div className="column-container">
         <div className="column left-column">
           <Title title="Summary" />
-          <p>Detail-oriented software engineer with six years of experience in collaborating with business, technology, and UX partners to develop customer-centric solutions</p>
+          <p>Energetic software engineer with 6+ years of experience developing customer-centric solutions in collaboration with business, technology, and UX partners</p>
           <div className="resume-email">
             <a href="mailto:trandianat@gmail.com">trandianat@gmail.com</a>
           </div>
@@ -62,8 +62,8 @@ const Resume = () => {
             </div>
           </div>
           <Title title="Education" />
-          <p>Boston College</p>
-          <p>Computer Science, 2014</p>
+          <p>Boston College, 2014</p>
+          <p>Bachelor's in Computer Science</p>
         </div>
         <div className="column right-column">
           <Title title="Experience" />

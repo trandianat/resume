@@ -51,7 +51,7 @@ const Detection = () => {
         setLoading(true);
         const model = await cocoSsd.load();
         try {
-            const predictions = await model.detect(selectedImage, 10, .25);
+            const predictions = await model.detect(document.getElementById('detection-image'), 10, .25);
             setResults(predictions);
         } catch {
             setError(true);
@@ -79,8 +79,10 @@ const Detection = () => {
             </select>
             <img alt="Detection test" id="detection-image" src={image} />
             <div id="result" />
-            {error && <p className="error"><b>Error in object detection. Please try again.</b></p>}
-            {results.length > 0 && results.map((result, index) => (<p>A{[vowels].includes(result.class.charAt(0) ? 'n' : '')} <span style={{ color: colors[index] }}>{result.class}</span> with {Math.round(result.score * 100)}% confidence</p>))}
+            {error && <p className="error"><strong>Error in object detection. Please try again.</strong></p>}
+            {results.length > 0 && results.map((result, index) => (
+                <p>A{[vowels].includes(result.class.charAt(0) ? 'n' : '')} <span style={{ color: colors[index] }}><strong>{result.class}</strong></span> with {Math.round(result.score * 100)}% confidence</p>
+            ))}
             {(results.length === 0 || error) && 
                 <Button
                     className={classNames('detection-button', { loading })}

@@ -105,23 +105,25 @@ const primarySkills = [
   'React',
   'JavaScript',
   'HTML',
-  'CSS',
+  'CSS/Sass',
   'GraphQL',
-  'REST APIs',
   'AWS',
+  'REST APIs',
   'Git',
   'CI/CD',
   'Agile',
 ];
 
 const familiarSkills = [
+  'Node.js',
+  'TypeScript',
   'MongoDB',
   'SQL',
-  'Node.js',
-  'Express.js',
+  'Webpack',
   'Docker',
+  'Redux',
   'Dojo',
-  'AngularJS',
+  'Angular',
   'Java',
 ];
 
