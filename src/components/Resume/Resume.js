@@ -9,10 +9,7 @@ const Resume = () => {
 
   const toggleOldExperience = () => {
     const oldExperience = document.getElementById('old-experience');
-    if (
-      !oldExperience.style.display ||
-      oldExperience.style.display === 'none'
-    ) {
+    if (!oldExperience.style.display || oldExperience.style.display === 'none') {
       oldExperience.style.display = 'block';
       setIsOldExperienceOpen(true);
     } else {
@@ -28,7 +25,7 @@ const Resume = () => {
       </p>
       <p>
         {experience.company}
-        {experience.department && `, ${experience.department}`}
+        {experience.department && ` — ${experience.department}`}
       </p>
       <p>
         <i>{experience.length}</i>
@@ -52,9 +49,7 @@ const Resume = () => {
                 <i>Primarily used</i>:
               </p>
               <ul>
-                {primarySkills.map((skill, sIndex) => (
-                  <li key={`primary-skill-${sIndex + 1}`}>{skill}</li>
-                ))}
+                {primarySkills.map(skill => <li key={skill}>{skill}</li>)}
               </ul>
             </div>
             <div className="resume-skills">
@@ -62,9 +57,7 @@ const Resume = () => {
                 <i>Familiar with</i>:
               </p>
               <ul>
-                {familiarSkills.map((skill, sIndex) => (
-                  <li key={`familiar-skill-${sIndex + 1}`}>{skill}</li>
-                ))}
+                {familiarSkills.map(skill => <li key={skill}>{skill}</li>)}
               </ul>
             </div>
           </div>
@@ -78,32 +71,30 @@ const Resume = () => {
             <>
               {formatExperienceDetails(experience)}
               <ul>
-              {experience.responsibilities.map((responsibility, rIndex) => (
-                <li key={`experience-${eIndex + 1}-${rIndex + 1}`}>
-                  {responsibility}
-                </li>
-              ))}
+                {experience.responsibilities.map((responsibility, rIndex) => (
+                  <li key={`experience-${eIndex + 1}-${rIndex + 1}`}>
+                    {responsibility}
+                  </li>
+                ))}
               </ul>
             </>
           ))}
-          <Button
-            label={`${isOldExperienceOpen ? 'Hide' : 'Show'} older experience`}
-            onClick={() => toggleOldExperience()}
-          />
+          {!isOldExperienceOpen && <Button label="Show older experience" onClick={() => toggleOldExperience()} />}
           <div id="old-experience">
             {oldExperiences.map((experience, eIndex) => (
               <>
-              {formatExperienceDetails(experience)}
-              <ul>
-                {experience.responsibilities.map((responsibility, rIndex) => (
-                <li key={`experience-${latestExperiences.length + eIndex + 1}-${rIndex + 1}`}>
-                  {responsibility}
-                </li>
-                ))}
-              </ul>
+                {formatExperienceDetails(experience)}
+                <ul>
+                  {experience.responsibilities.map((responsibility, rIndex) => (
+                  <li key={`experience-${latestExperiences.length + eIndex + 1}-${rIndex + 1}`}>
+                    {responsibility}
+                  </li>
+                  ))}
+                </ul>
               </>
             ))}
           </div>
+          {isOldExperienceOpen && <Button label="Hide older experience" onClick={() => toggleOldExperience()} />}
         </div>
       </div>
     </div>
