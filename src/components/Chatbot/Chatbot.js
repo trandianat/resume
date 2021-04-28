@@ -81,6 +81,7 @@ const Chatbot = () => {
                     <div className="chatbot-control-message">
                         <input
                             id="chatbot-control-message-input"
+                            maxLength={100}
                             onChange={event => setInput(event.target.value)}
                             placeholder="Type a message..."
                             value={input}

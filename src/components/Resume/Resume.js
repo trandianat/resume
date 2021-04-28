@@ -94,7 +94,15 @@ const Resume = () => {
               </>
             ))}
           </div>
-          {isOldExperienceOpen && <Button label="Hide older experience" onClick={() => toggleOldExperience()} />}
+          {isOldExperienceOpen && (
+            <>
+              <Button className="resume-hide-button" label="Hide older experience" onClick={() => toggleOldExperience()} />
+              <Button label="Back to top" onClick={() => {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+              }} />
+            </>
+          )}
         </div>
       </div>
     </div>
